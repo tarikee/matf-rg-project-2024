@@ -1,4 +1,6 @@
 matf_rg_engine
+build/
+.DS_Store
 
 CMakeLists.txt.user
 CMakeCache.txt
