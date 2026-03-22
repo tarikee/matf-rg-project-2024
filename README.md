@@ -9,12 +9,28 @@ University of Belgrade for the school year of 2024/2025.
 
 ### Debian based (Ubuntu, Debian...)
 
-**To setup the necessary libraries, run:**  
+**To setup the necessary libraries, run:**
 `./setup.sh`
 
-**To generate docs, run:**  
-`doxygen Doxyfile`   
+**To generate docs, run:**
+`doxygen Doxyfile`
 Open the documentation file in your browser: `docs/html/index.html`
+
+## macOS (Apple Silicon)
+
+See [SETUP_MACOS.md](SETUP_MACOS.md) for full instructions.
+
+**Quick start:**
+```bash
+./setup_macos.sh
+echo 'export CC=$(brew --prefix llvm)/bin/clang' >> ~/.zshrc
+echo 'export CXX=$(brew --prefix llvm)/bin/clang++' >> ~/.zshrc
+source ~/.zshrc
+cmake -B build -DCMAKE_BUILD_TYPE=Debug
+cmake --build build
+```
+
+> Note: Apple's default clang does not support C++23. The setup script installs LLVM via Homebrew which does.
 
 # Engine
 
