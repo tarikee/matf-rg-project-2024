@@ -41,6 +41,9 @@ void PlatformController::initialize() {
     } else if (glfwPlatformSupported(GLFW_PLATFORM_WIN32)) {
         glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_WIN32);
     }
+#ifdef __APPLE__
+    glfwInitHint(GLFW_COCOA_CHDIR_RESOURCES, GLFW_FALSE);
+#endif
     bool glfw_initialized = glfwInit();
     RG_GUARANTEE(glfw_initialized, "GLFW platform failed to initialize_controllers.");
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
